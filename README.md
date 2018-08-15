@@ -23,13 +23,13 @@ import FileKit
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-	@IBOutlet weak var window: NSWindow!
+    @IBOutlet weak var window: NSWindow!
     private let path: Path = .userApplicationSupport
     internal let accessRightsManager: AccessRightsManager(directory: path + "AccessRights")
 
-	func applicationDidFinishLaunching(_ aNotification: Notification) {
-		try? accessRightsManager.restore() // restore previously acquired Access Rights
-	}
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
+        try? accessRightsManager.restore() // restore previously acquired Access Rights
+    }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         try? accessRightsManager.persist() // persist currently owned Access Rights
